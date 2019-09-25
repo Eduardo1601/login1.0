@@ -6,11 +6,53 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>loginserve</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but loginserve doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+  </head> 
+ <div id="login">
+  <label>Usuario:</label> <input type="text" name="Usuario" v-model="input.Usuario" placeholder="Usuario" />
+<br>
+<label>Contraseña:</label> 
+  <input type="password" name="password" v-model="input.password" placeholder="Password" />
+  <br>
+  <a href="http://localhost:8081/">ingresar</a>
+  <button href="" type="button" v-on:click="login()">Login</button>
+ </div>
+ <style scoped>
+  #login {
+      width: 500px;
+      border: 1px solid #CCCCCC;
+      background-color: #FFFFFF;
+      margin: auto;
+      margin-top: 200px;
+      padding: 20px;
+  }
+</style>
+  <script>
+      export default {
+          name: 'Login',
+          data() {
+              return {
+                  input: {
+                      Usuario: "",
+                      password: ""
+                  }
+              }
+          },
+          methods: {
+              login() {
+                  if(this.input.Usuario != "" && this.input.password != "") {
+                      if(this.input.Usuario == this.$parent.mockAccount.Usuario && this.input.password == this.$parent.mockAccount.password) {
+                          this.$emit("authenticated", true);
+                          this.$router.replace({name: "server2" });
+                      } else {
+                          console.log("El Usuario y / o la contraseña son incorrectas");
+                      }
+                  } else {
+                      console.log("no ha ingresado datos");
+                  }
+              }
+          }
+      }
+  </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
