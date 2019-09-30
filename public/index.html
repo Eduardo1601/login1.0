@@ -7,52 +7,86 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>loginserve</title>
   </head> 
- <div id="login">
-  <label>Usuario:</label> <input type="text" name="Usuario" v-model="input.Usuario" placeholder="Usuario" />
-<br>
-<label>Contraseña:</label> 
-  <input type="password" name="password" v-model="input.password" placeholder="Password" />
+ 
+  <div id="login">
+    <label>Usuario:</label> <input type="text" name="Usuario" v-model="input.Usuario" placeholder="Usuario" />
   <br>
-  <a href="http://localhost:8081/">ingresar</a>
-  <button href="" type="button" v-on:click="login()">Login</button>
- </div>
- <style scoped>
-  #login {
-      width: 500px;
-      border: 1px solid #CCCCCC;
-      background-color: #FFFFFF;
-      margin: auto;
-      margin-top: 200px;
-      padding: 20px;
-  }
+  <label>Contraseña:</label> 
+    <input type="password" name="password" v-model="input.password" placeholder="Password" />
+    <br>
+    <!DOCTYPE html>
+<head>
+<style>
+a:link, a:visited {
+  background-color: black;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: gray;
+}
 </style>
-  <script>
-      export default {
-          name: 'Login',
-          data() {
-              return {
-                  input: {
-                      Usuario: "",
-                      password: ""
-                  }
-              }
-          },
-          methods: {
-              login() {
-                  if(this.input.Usuario != "" && this.input.password != "") {
-                      if(this.input.Usuario == this.$parent.mockAccount.Usuario && this.input.password == this.$parent.mockAccount.password) {
-                          this.$emit("authenticated", true);
-                          this.$router.replace({name: "server2" });
-                      } else {
-                          console.log("El Usuario y / o la contraseña son incorrectas");
-                      }
-                  } else {
-                      console.log("no ha ingresado datos");
-                  }
-              }
+</head>
+<body>
+
+<a href="http://localhost:8080/" target="_blank">Ingresar</a>
+
+</body>
+</html>
+   </div>
+   <style scoped>
+    #login {
+        width: 100px;
+        border: 1px solid #CCCCCC;
+        background-color: #FFFFFF;
+        margin: auto;
+        margin-top: 20px;
+        padding: 100px;
+    }
+  </style>
+    <script>        
+        export default {
+            name: 'Login',
+            data() {
+                return {
+                    input: {
+                        Usuario: "gaby",
+                        password: "gaby"
+                    }
+                }
+            },
+           
+            
+  methods: {
+      
+      sub: function(event){
+          
+          if(this.login == "" || this.senha == ""){
+            
+            this.log = "Preencha o campo para login";
+            event.preventDefault();
           }
       }
-  </script>
+  }
+  
+}
+             
+            
+        
+    </script>
+
+
+
+
+
+
+
+
+
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

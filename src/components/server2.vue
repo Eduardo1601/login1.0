@@ -30,7 +30,7 @@
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
-      <a href="http://localhost:3000/prueba" target="_blank" rel="noopener">vue-cli documentation</a>.
+      <a href="http://localhost:8080/" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <button @click="getinfo">Click</button>
   </div>
